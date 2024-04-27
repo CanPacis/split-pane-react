@@ -4,6 +4,7 @@
   "description": "Resizable split panes for React.js.",
   "module": "./esm/index.js",
   "typings": "./esm/index.d.ts",
+  "type": "module",
   "files": [
     "esm",
     "src"
@@ -11,7 +12,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "gulp --gulpfile ./build/gulpfile.js"
+    "build": "vite build"
   },
   "keywords": [
     "react",
@@ -24,7 +25,7 @@
     "flexbox",
     "components"
   ],
-  "author": "yyllff",
+  "author": "yyllff & Muhammed Ali CAN",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.0",
