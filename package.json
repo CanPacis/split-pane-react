@@ -45,7 +45,7 @@
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   },
-  "repository": "https://github.com/yyllff/split-pane-react",
+  "repository": "https://github.com/CanPacis/split-pane-react-revised",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
