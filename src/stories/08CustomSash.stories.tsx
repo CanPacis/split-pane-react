@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Button } from '@storybook/react/demo';
-import SplitPane, { Pane, SashContent } from '../src';
-import '../src/themes/default.scss';
+import { useState } from 'react';
+import SplitPane, { Pane, SashContent } from '../index';
+import '../theme.css';
 
 export default {
     title: 'Advanced',
@@ -16,7 +15,7 @@ export const CustomSash = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-    };
+    } as React.CSSProperties;
 
     return (
         <div style={{ height: 500 }}>
@@ -25,7 +24,7 @@ export const CustomSash = () => {
                 sizes={sizes}
                 onChange={setSizes}
                 resizerSize={6}
-                sashRender={(index, active) => (
+                sashRender={() => (
                     <SashContent style={{ backgroundColor: 'gray' }} />
                 )}
             >

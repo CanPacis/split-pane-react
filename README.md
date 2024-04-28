@@ -17,18 +17,21 @@
 
 ````sh
 # use npm
-npm install split-pane-react
+npm install @canpacis/split-pane-react-revised
 
 # or if you use yarn
-yarn add split-pane-react
+yarn add @canpacis/split-pane-react-revised
+
+# pnpm
+pnpm install @canpacis/split-pane-react-revised
 ````
 
 ## Example Usage
 
 ```jsx
 import React, { useState } from 'react';
-import SplitPane, { Pane } from 'split-pane-react';
-import 'split-pane-react/esm/themes/default.css';
+import SplitPane, { Pane } from '@canpacis/split-pane-react-revised';
+import '@canpacis/split-pane-react-revised/esm/themes/default.css';
 
 function style (color) {
   return {

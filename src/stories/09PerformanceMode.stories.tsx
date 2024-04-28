@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Button } from '@storybook/react/demo';
-import SplitPane, { Pane } from '../src';
-import '../src/themes/default.scss';
+import { useState } from 'react';
+import SplitPane, { Pane } from '../index';
+import '../theme.css';
 
 export default {
     title: 'Advanced',
@@ -16,7 +15,7 @@ export const PerformacnceMode = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-    };
+    } as React.CSSProperties;
 
     return (
         <div style={{ height: 500 }}>
