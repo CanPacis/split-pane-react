@@ -6,19 +6,36 @@ import {
   useRef,
   useState,
 } from "react";
-import { assertsSize, bodyDisableUserSelect, classNames, splitClassName, splitVerticalClassName, splitHorizontalClassName, splitDragClassName, paneClassName, sashDisabledClassName, sashVerticalClassName, sashHorizontalClassName } from "./base";
-import { ISplitProps, IAxis, ICacheSizes, IPaneConfigs, HTMLElementProps } from "./types";
+import {
+  assertsSize,
+  bodyDisableUserSelect,
+  classNames,
+  paneClassName,
+  sashDisabledClassName,
+  sashHorizontalClassName,
+  sashVerticalClassName,
+  splitClassName,
+  splitDragClassName,
+  splitHorizontalClassName,
+  splitVerticalClassName,
+} from "./base";
+import {
+  HTMLElementProps,
+  IAxis,
+  ICacheSizes,
+  IPaneConfigs,
+  ISplitProps,
+} from "./types";
 import Sash, { SashContent } from "./sash";
 
 export function Pane({
   children,
   style,
   className,
-  role,
   title,
 }: PropsWithChildren<HTMLElementProps & IPaneConfigs>) {
   return (
-    <div role={role} title={title} className={className} style={style}>
+    <div title={title} className={className} style={style}>
       {children}
     </div>
   );
@@ -60,10 +77,11 @@ export const SplitPane = ({
       splitPos: split === "vertical" ? "left" : "top",
       splitAxis: split === "vertical" ? "x" : "y",
     }),
-    [split]
+    [split],
   );
 
-  const wrapSize: number = (wrapperRect as Record<string, number>)[sizeName] ?? 0;
+  const wrapSize: number = (wrapperRect as Record<string, number>)[sizeName] ??
+    0;
 
   // Get limit sizes via children
   const paneLimitSizes = useMemo(
@@ -77,7 +95,7 @@ export const SplitPane = ({
         }
         return limits;
       }),
-    [children, wrapSize]
+    [children, wrapSize],
   );
 
   const sizes = useMemo(
@@ -107,12 +125,12 @@ export const SplitPane = ({
 
       return res;
     },
-    [children, propSizes, wrapSize]
+    [children, propSizes, wrapSize],
   );
 
   const sashPosSizes = useMemo(
     () => sizes.reduce((a, b) => [...a, a[a.length - 1] + b], [0]),
-    [sizes]
+    [sizes],
   );
 
   const dragStart = useCallback(
@@ -123,7 +141,7 @@ export const SplitPane = ({
       setDragging(true);
       onDragStart(e);
     },
-    [onDragStart, sizes, sashPosSizes]
+    [onDragStart, sizes, sashPosSizes],
   );
 
   const dragEnd = useCallback(
@@ -134,21 +152,22 @@ export const SplitPane = ({
       setDragging(false);
       onDragEnd(e);
     },
-    [onDragEnd, sizes, sashPosSizes]
+    [onDragEnd, sizes, sashPosSizes],
   );
 
   const onDragging = useCallback(
     function (e: MouseEvent, i: number) {
       const curAxis = { x: e.pageX, y: e.pageY };
-      let distanceX = curAxis[splitAxis as keyof typeof curAxis] - axis.current[splitAxis as keyof typeof axis.current];
+      let distanceX = curAxis[splitAxis as keyof typeof curAxis] -
+        axis.current[splitAxis as keyof typeof axis.current];
 
       const leftBorder = -Math.min(
         sizes[i] - paneLimitSizes[i][0],
-        paneLimitSizes[i + 1][1] - sizes[i + 1]
+        paneLimitSizes[i + 1][1] - sizes[i + 1],
       );
       const rightBorder = Math.min(
         sizes[i + 1] - paneLimitSizes[i + 1][0],
-        paneLimitSizes[i][1] - sizes[i]
+        paneLimitSizes[i][1] - sizes[i],
       );
 
       if (distanceX < leftBorder) {
@@ -164,7 +183,7 @@ export const SplitPane = ({
 
       onChange(nextSizes);
     },
-    [splitAxis, sizes, paneLimitSizes, onChange]
+    [splitAxis, sizes, paneLimitSizes, onChange],
   );
 
   const paneFollow = !(performanceMode && isDragging);
@@ -178,7 +197,7 @@ export const SplitPane = ({
         (split === "vertical" && splitVerticalClassName) as string,
         (split === "horizontal" && splitHorizontalClassName) as string,
         (isDragging && splitDragClassName) as string,
-        wrapClassName!
+        wrapClassName!,
       )}
       ref={wrapper}
       {...others}
@@ -208,7 +227,7 @@ export const SplitPane = ({
             (!allowResize && sashDisabledClassName) as string,
             split === "vertical"
               ? sashVerticalClassName
-              : sashHorizontalClassName
+              : sashHorizontalClassName,
           )}
           style={{
             [sizeName]: resizerSize,

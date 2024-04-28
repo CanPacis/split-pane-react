@@ -1,7 +1,8 @@
 {
-  "name": "split-pane",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@canpacis/split-pane-react-revised",
+  "private": false,
+  "version": "0.1.6",
+  "description": "Resizable split panes for React.js.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,9 +12,35 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "main": "dist/split-pane.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "keywords": [
+    "react",
+    "multipane",
+    "split pane",
+    "ui",
+    "resize",
+    "resizeable",
+    "layout",
+    "flexbox",
+    "components"
+  ],
+  "author": "yyllff & Muhammed Ali CAN",
+  "license": "MIT",
+  "repository": "https://github.com/CanPacis/split-pane-react-revised",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.3.3",
