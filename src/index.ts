@@ -1,6 +1,6 @@
-export * from './SplitPane';
+import { SplitPane } from "./pane"
+
 export * from './pane';
-export * from './SashContent';
-export { default } from './SplitPane';
-export { default as Pane } from './pane';
-export { default as SashContent } from './SashContent';
+export * from './sash';
+
+export default SplitPane;

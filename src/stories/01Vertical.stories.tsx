@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Button } from '@storybook/react/demo';
-import SplitPane, { Pane } from '../src';
-import '../src/themes/default.scss';
+import { useState } from 'react';
+import SplitPane from '../index';
+import '../theme.css';
 
 export default {
     title: 'Basic',

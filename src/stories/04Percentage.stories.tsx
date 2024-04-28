@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { Button } from '@storybook/react/demo';
-import SplitPane, { Pane } from '../src';
-import '../src/themes/default.scss';
+import { useState } from 'react';
+import SplitPane from "../index";
+import '../theme.css';
 
 export default {
     title: 'Basic',
 };
 
-export const BasicHorizontal = () => {
+export const PercentageSize = () => {
     const [sizes, setSizes] = useState<(number | string)[]>([
-        100,
-        200,
+        '20%',
+        '30%',
         'auto',
     ]);
 
@@ -23,17 +22,19 @@ export const BasicHorizontal = () => {
 
     return (
         <div style={{ height: 500 }}>
-            <p>Set size ='horizontal ', switch to horizontal panel</p>
+            <p>Size value support percentage</p>
             <SplitPane
-                split='horizontal'
                 sizes={sizes}
                 onChange={(sizes) => setSizes(sizes)}
             >
                 <div style={{ ...layoutCSS, background: '#ddd' }}>
-                    pane1
+                    Pane1
                 </div>
-                <div style={{ ...layoutCSS, background: '#c0c3c6' }}>
-                    pane2
+                <div style={{ ...layoutCSS, background: '#d5d7d9' }}>
+                    Pane2
+                </div>
+                <div style={{ ...layoutCSS, background: '#a1a5a9' }}>
+                    Pane3
                 </div>
             </SplitPane>
         </div>
